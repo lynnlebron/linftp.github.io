@@ -22,7 +22,7 @@
 	<script>
     (function(){
         if('{{ page.password }}'){
-            if (prompt('请输入文章密码') !== '{{ page.password }}'){
+            if (prompt('请输入文章密码') != '{{ page.password }}'){
                 alert('密码错误！');
                 history.back();
             }
@@ -147,14 +147,14 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
