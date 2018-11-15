@@ -19,6 +19,17 @@
     </title>
 
     <link rel="canonical" href="http://yoursite-url/archives/2018/">
+	<script>
+    (function(){
+        if('{{ page.password }}'){
+            if (prompt('请输入文章密码') !== '{{ page.password }}'){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+	</script>
+
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">

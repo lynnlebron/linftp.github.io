@@ -19,6 +19,17 @@
     </title>
 
     <link rel="canonical" href="http://yoursite-url/2017/03/18/hexo-theme-beantech/">
+	<script>
+    (function(){
+        if('{{ page.password }}'){
+            if (prompt('请输入文章密码') !== '{{ page.password }}'){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+	</script>
+
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
