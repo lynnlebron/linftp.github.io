@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Lynn Blog">
+    <meta name="keyword" content="">
+    <link rel="shortcut icon" href="/img/man.jpg">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <title>
+        
+          Hexo+GitHub搭建个人博客零代码基础教程 - Lynn Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://yoursite-url/2018/11/20/BlogTutorials/">
+
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS --> 
+    <link rel="stylesheet" href="/css/beantech.min.css">
+    
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <link rel="stylesheet" href="/css/widget.css">
+
+    <link rel="stylesheet" href="/css/rocket.css">
+
+    <link rel="stylesheet" href="/css/signature.css">
+
+    <link rel="stylesheet" href="/css/toc.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+	<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('lover.jpg')
+            /*post*/
+        
+    }
+    
+    #signature{
+        background-image: url('/img/signature/sign-white.png');
+    }
+    
+</style>
+
+<header class="intro-header">
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                              <a class="tag" href="/tags/#Hexo" title="Hexo">Hexo</a>
+                            
+                              <a class="tag" href="/tags/#GitHub" title="GitHub">GitHub</a>
+                            
+                              <a class="tag" href="/tags/#教程" title="教程">教程</a>
+                            
+                        </div>
+                        <h1>Hexo+GitHub搭建个人博客零代码基础教程</h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            Posted by Lynn on
+                            2018-11-20
+                        </span>
+                    </div>
+                
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Lynn Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Modify by Yu-Hsuan Yen -->
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <div align="center"><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=30967438&auto=0&height=66"></iframe></div>
+
+<blockquote>
+<p>前几天，在与表姐聊天过程中聊到了云服务的问题时，我向她展示了自己刚搭建好的个人博客网站。作为我的博客第一个访客的福利，我答应给她写一篇零代码基础的教程。</p>
+</blockquote>
+<p>这篇教程文除了详细的搭建博客的步骤以外，还会包含各种细节问题的填坑以及发文的详细流程。但本文也仅限于总结我在搭建博客时的具体方案，涉及其他不同的个性化方案，会稍有提及，但并不会一一详解。</p>
+<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><hr>
+<p>首先，我们先弄清楚Hexo和GitHub是什么?</p>
+<p>通过<a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">Hexo官网</a>的介绍，我们可以了解到<strong>Hexo</strong>是一个一个快速、简洁且高效的博客框架，它基于<strong>Node.js</strong>，使用<strong>Markdown</strong>来解析文章。</p>
+<p>而<a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>是一个面向开源和私有软件项目的托管平台,也是一个开源代码库以及版本控制系统。</p>
+<p>而GitHub有一个<a href="//pages.github.com">GitHubPages</a>的功能，用于设置你的主页或是你的项目主页。由此我们可以利用这个功能，根据Markdown语法写好我们的博文，使用Hexo上传至GitHub中，然后别人访问我们的主页时，就可以看到Hexo通过靓丽的主题生成的静态网页了。在搭建好我们的博客以后，我们只需使用Markdown语法写好博文上传至GitHub就可以了，而无需关注网页具体生成细节，是不是很简单呢？</p>
+<h1 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a>安装Node.js</h1><hr>
+<p>在安装Hexo之前我们首先要安装Node.js和Git。</p>
+<p>下载<a href="https://nodejs.org/dist/latest-v10.x/node-v10.13.0-x64.msi" target="_blank" rel="noopener">Node.js</a><em>（这里给出的是windows系统的64位安装包，请根据自己的系统选择合适的安装包。另该版本使用chrome下载后会有危险警示，无视它好了。）</em>安装过程全部默认设置就可以了，安装路径可自行修改。</p>
+<p>安装之后，按<code>Win+R</code>打开”运行程序”,输入<code>cmd</code>，打开“命令提示符窗口”，输入<code>node -v</code>，回车，出现版本号，则表示安装成功。</p>
+<div align="center"><img src="node.png" data-action="zoom"></div>
+
+<h1 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h1><hr>
+<p>下载<a href="https://git-scm.com/download/win" target="_blank" rel="noopener">Git</a><em>(进入网页后，稍等一下会自动弹出下载框，安装包适用于Windows系统64位)</em>。打开安装包，一路<code>next</code>下去就可以了，有需要的可自行更改安装路径。</p>
+<p>安装之后，按<code>Win+R</code>打开”运行程序”,输入<code>cmd</code>，打开“命令提示符窗口”，输入<code>git version</code>，回车，出现版本号，则表示安装成功。</p>
+<div align="center"><img src="git.png" data-action="zoom"></div>
+
+<h1 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h1><hr>
+<p>我们可以利用git来安装Hexo。</p>
+<p>首先，我们要新建一个文件夹放置我们的博客文件<em>(我的是在“D:\linftp”)</em>，打开该文件夹,点击鼠标右键，选择<code>Git Bash Here</code>。</p>
+<p>输入<code>npm config set registry https://registry.npm.taobao.org</code><em>(这一步意义在于把npm默认安装源地址改为淘宝的镜像站地址，原因是因为默认安装源地址速度实在太慢，还可能因为“被墙”问题导致访问不成功。)</em>，回车。</p>
+<p>输入<code>npm install hexo-cli –g</code>，回车，稍等一会即可完成，可能会有“waring”，无视即可。</p>
+<p>输入<code>hexo -v</code>，回车，出现下图表示安装成功。</p>
+<div align="center"><img src="hexo.png" data-action="zoom"></div>
+
+<p>输入<code>hexo init</code>，回车，Hexo会在该文件夹下初始化生成博客所需的所有文件。<em>（可能会有几个warning，无视即可。）</em></p>
+<p>输入<code>npm install</code>，回车，安装依赖包。<em>（可能会有几个warning，无视即可。）</em></p>
+<p>至此，Hexo已经安装完毕了，输入<code>hexo g</code>生成静态网页，输入<code>hexo s</code>启动本地服务器上。这时，<strong>打开浏览器</strong>，输入”<a href="http://localhost:4000/&quot;即可访问到我们刚建好的博客了。" target="_blank" rel="noopener">http://localhost:4000/&quot;即可访问到我们刚建好的博客了。</a></p>
+<div align="center"><img src="local.png" data-action="zoom"></div>
+
+<p>在<strong>Git Bash界面</strong>按<code>Ctrl+C</code>即可关闭本地服务器。</p>
+<h1 id="注册GitHub账号"><a href="#注册GitHub账号" class="headerlink" title="注册GitHub账号"></a>注册GitHub账号</h1><hr>
+<h2 id="访问不到GitHub官网时处理方案"><a href="#访问不到GitHub官网时处理方案" class="headerlink" title="访问不到GitHub官网时处理方案"></a>访问不到GitHub官网时处理方案</h2><p><em>（下面流程打开Github网页时可能会出现卡顿，加载不出页面的情况。原因是因为GitHub的服务器在国外，在加载某些网页文件可能会“被墙”。如果有搭建好SS或者VPN的同学可以不用担心这个问题。没有的话可以根据下面方法修改hosts文件。如果可以正常访问下面的网站请自行忽略。）</em></p>
+<p><strong>现象：</strong>访问<a href="https://github.com" target="_blank" rel="noopener">GitHub官网</a>，发现网页加载不出来。按<code>F12</code>查看浏览器<code>console</code>窗口可知在访问“assets-cdn.github.com”与“avatars2.githubusercontent.com”时出现连接超时现象，可能“被墙”<em>(如果你的是连接其他网页地址出现超时，也可使用下面的方法。请根据你的实际情况操作。)</em>。</p>
+<p><strong>解决方案：</strong><br>1、登录<a href="http://tool.chinaz.com/dns" target="_blank" rel="noopener">DNS查询工具</a>，输入“assets-cdn.github.com”查询。</p>
+<div align="center"><img src="dns.png" data-action="zoom"></div>
+
+<p>2、选择几个TTL值最小的IP地址，记录下来。</p>
+<div align="center"><img src="ttl.png" data-action="zoom"></div>                                                                                                                                                                                                                                                                                                                                                                     
+
+<p>3、打开“C:\Windows\System32\drivers\etc”目录下的hosts文件，可以使用记事本打开。在最下面按照下图的格式填上你刚才记录的IP地址。</p>
+<div align="center"><img src="hosts1.png" data-action="zoom"></div>                                                                                                                                                                                                                                                                                                                                                                     
+
+<p>4、按照同样的方式查询“avatars2.githubusercontent.com”，同样在最下面加上你查询到的IP地址。最终在“hosts”文件下添加了6条DNS解析地址。</p>
+<div align="center"><img src="hosts2.png" data-action="zoom"></div>                                                                                                                                                                                                                                                                                                                                                                     
+
+<p>5、保存“hosts”文件，按<code>WIN+R</code>，输入<code>cmd</code>,打开“命令提示符窗口”，输入<code>ipconfig /flushdns</code>，回车，刷新DNS缓存。然后重新访问Git官网，此时访问正常。</p>
+<h2 id="打开GitHub官网注册账号"><a href="#打开GitHub官网注册账号" class="headerlink" title="打开GitHub官网注册账号"></a>打开GitHub官网注册账号</h2><p>打开<a href="https://github.com" target="_blank" rel="noopener">GitHub官网</a>，分别输入用户名，邮箱地址，密码进行注册。</p>
+<div align="center"><img src="signup.png" data-action="zoom"></div>
+
+<p>这时，GitHub会发一条邮件到你的邮箱，前往你的邮箱，打开邮件，点击链接，激活你的GitHub账号。</p>
+<p>登录你的Github账号，点击“+”，选择“New repository”，创建你的项目。</p>
+<div align="center"><img src="repository.png" data-action="zoom"></div>
+
+<p>创建成功后，点击“settings”。</p>
+<div align="center"><img src="settings.png" data-action="zoom"></div>
+
+<p>拉到下面有个”GitHub Pages”选项，点击“choose a theme”。</p>
+<div align="center"><img src="choosetheme.png" data-action="zoom"></div>
+
+<p>点击“Select theme”，即为你的项目的主页选择了一个主题。</p>
+<div align="center"><img src="selecttheme.png" data-action="zoom"></div>
+
+<p>此时重新点击“settings”，拉到下面的“GitHub Pages”，发现出现一个链接，链接格式为<code>https://你的用户名.github.io/你的项目名.github.io/</code>，例如我的就是<code>https://lynnlebron.github.io/linftp.github.io/</code>,点击进去就可以看到你的项目首页了。</p>
+<h1 id="配置GitHub"><a href="#配置GitHub" class="headerlink" title="配置GitHub"></a>配置GitHub</h1><hr>
+<p>鼠标点击右键，选择“Git Bash Here”。</p>
+<p>输入下列命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">"lynnlebron"</span></span><br><span class="line">git config --global user.email <span class="string">"358804753@qq.com"</span></span><br></pre></td></tr></table></figure>
+<p>用户名和邮箱要填你刚才注册的用户名和邮箱。</p>
+<p>输入以下命令生成SSH密钥</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C 358804753@qq.com</span><br></pre></td></tr></table></figure>
+<p>邮箱地址填你注册时用的，别的不要改动。</p>
+<p>然后回车，回车。中间可能会出现要求你输入密码的提示。那就输入密码就好了。输入密码可能不会出现字符，但实际是是已经记录的了。</p>
+<p>出现类似下图表示SSH Key生成成功。</p>
+<div align="center"><img src="sshkey.png" data-action="zoom"></div>
+
+<p>打开你的电脑的C盘，选择“用户”文件夹，选择你电脑登陆的用户，找到“.ssh”文件夹<em>（该文件夹是隐藏文件夹，可能会看不到，请自行百度如何查看隐藏的文件夹。我的该文件夹的路径是“C:\Users\Lynn.ssh”）</em>，打开里面的“id_rsa”文件，注意是无后缀的，可以用记事本打开。打开之后，<code>Ctrl+A</code>全选，<code>Ctrl+C</code>复制。</p>
+<p>接下来打开<a href="https://github.com/" target="_blank" rel="noopener">Git</a>，点击右上角的头像，选择“Settings”</p>
+<div align="center"><img src="imgsettings.png" data-action="zoom"></div>
+
+<p>点击“SSH and GPG keys”，输入title和刚才复制的key，点击”Add SSH Key”。</p>
+<div align="center"><img src="addsshkey.png" data-action="zoom"></div>
+
+<p>在“Git Bash”界面输入以下命令。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+<p>回车，此时可能会出现要求输入密码的提示，请根据实际情况进行操作。</p>
+<p>如果能看到类似下图提示，表示连接成功。</p>
+<div align="center"><img src="success.png" data-action="zoom"></div>
+
+<p>在你博客所在的根目录下<em>(即你在安装Hexo那一步时创建的文件夹，我的路径是“D:\linftp”)</em>，点击鼠标右键，选择“Git Bash Here”，输入<code>npm install hexo-deployer-git --save</code>，为Hexo安装部署组件。</p>
+<p>安装“Notepad++”，请自行百度安装。然后进入你博客所在的根目录下，有一文件为“_config.yml”，右键，选择使用刚才安装的“Notepad++”打开<em>（记事本打开排版会出错）</em>，修改最下面的“deploy”。</p>
+<div align="center"><img src="deployre.png" data-action="zoom"></div>
+
+<h1 id="绑定域名"><a href="#绑定域名" class="headerlink" title="绑定域名"></a>绑定域名</h1><hr>
+<p>首先，你得购买一个域名。以百度云为例，打开<a href="https://cloud.baidu.com/product/bcd.html" target="_blank" rel="noopener">域名服务网页</a>，输入自己想要注册的域名，查询是否已注册，然后购买。购买之后请进行实名登记，需要上传身份证照片，然后提交，不到半天时间就可以审核通过了。</p>
+<p>按<code>Win+R</code>，输入<code>cmd</code>，打开“命令提示符”界面，输入<code>ping linftp.github.io</code>，这里需要把“linftp.github.io”换成你之前创建的项目名字，然后回车，记录下红框位置的IP地址，那就是你项目首页的IP地址。</p>
+<div align="center"><img src="ping.png" data-action="zoom"></div>
+
+<p>然后进入“域名管理”界面，点击“解析”，进入“解析管理”界面。点击“添加解析”。</p>
+<div align="center"><img src="jiexi.png" data-action="zoom"></div>
+
+<p>按照下图添加两条解析，注意这里的“记录值”要填你刚才记录的IP地址。</p>
+<div align="center"><img src="addjiexi.png" data-action="zoom"></div>
+
+<p>然后打开浏览器，输入<code>https://github.com/你的用户名/你的项目名</code>，<em>（我的是<a href="https://github.com/lynnlebron/linftp.github.io）" target="_blank" rel="noopener">https://github.com/lynnlebron/linftp.github.io）</a></em>。点击“Settings”，拉到下面的“GitHub Pages”，在“Custom domain”输入你的域名，点击“Save”即可绑定。</p>
+<div align="center"><img src="domain.png" data-action="zoom"></div>
+
+<h1 id="更换主题"><a href="#更换主题" class="headerlink" title="更换主题"></a>更换主题</h1><hr>
+<p>Hexo会自带一个主题，如果你不喜欢的话，可以到<a href="https://hexo.io/themes/" target="_blank" rel="noopener">Hexo官网</a>自行挑选下载。</p>
+<p>我的主题是<a href="https://github.com/YenYuHsuan/hexo-theme-beantech" target="_blank" rel="noopener">beantech</a>，原因是因为当初第一眼看到它时就非常喜欢，界面简洁、美观。而且，它的“回到顶部”按钮是钢铁侠升空的动画，更是增分不好。虽然后来再看其他主题也觉得挺好看的，但是却总觉得失去了那一抹的惊艳。第一眼的美好许是难以忘记的。</p>
+<p>可以看看知乎上有关Hexo主题推荐的帖子。<a href="https://www.zhihu.com/question/24422335/answer/46357100" target="_blank" rel="noopener">有哪些好看的 Hexo 主题？</a>。</p>
+<p>以beantech主题为例，进入<a href="https://github.com/YenYuHsuan/hexo-theme-beantech" target="_blank" rel="noopener">beantech</a>主题项目，点击下载该主题。</p>
+<div align="center"><img src="beantech.png" data-action="zoom"></div>
+
+<p>解压该文件，把红框中的四个文件替换你的博客根目录<em>（即在安装Hexo时创建的文件夹，我的是“D:/linftp/”）</em>下的文件。</p>
+<p>这时，使用“Notepad++”打开“_config.yml”,修改最下面的“deploy”。</p>
+<div align="center"><img src="deployre.png" data-action="zoom"></div>
+
+<p>使用“Nodepad++”打开“source”文件夹下的“CNAME”文件,把里面的内容改为你的域名。<em>（我的是“linftp.com”，无需前缀）</em></p>
+<div align="center"><img src="cname.png" data-action="zoom"></div>
+
+<h1 id="添加、删除文章"><a href="#添加、删除文章" class="headerlink" title="添加、删除文章"></a>添加、删除文章</h1><hr>
+<p>终于到了这一步了。可以说，前面所有的步骤都是在为这里做铺垫。</p>
+<h2 id="如何添加一篇文章"><a href="#如何添加一篇文章" class="headerlink" title="如何添加一篇文章"></a>如何添加一篇文章</h2><p>打开你的博客所在根目录，鼠标右键，点击“Git Bash Here”，输入<code>hexo new post &quot;file name&quot;</code>即可新建一篇文章，注意这里的”file name”是对应你文章的文件名，不一定是你在网页上看到的文章的标题，一般用英文命名。打开博客根目录的source-&gt;_posts<em>(对应我的完整路径是D:\linftp\source_posts)</em>。可以看到新建了一个文件夹和一个.md后缀的文件。其中，文件夹存放的是你这篇文章所用到的一些文件，比如图片，视频等。后缀为.md的文件即为你的文章内容了。</p>
+<p>首先介绍一下这个后缀为.md的文件，这是一个采用<strong>Markdown</strong>语法编写的文件。这里给出<a href="https://www.zybuluo.com/mdeditor?url=https://www.zybuluo.com/static/editor/md-help.markdown" target="_blank" rel="noopener">Markdown简明语法手册</a>，同时它也是一个在线的Markdown编辑阅读器。</p>
+<p>我使用的是<a href="https://www.farbox.com/service/app/desktop_editor" target="_blank" rel="noopener">FarBox</a>，界面简洁大方，支持同步预览，上手难度不高。不过预览效果跟网页上实际效果可能有一些不一样，这个对比一下就清楚了。</p>
+<p>以我的第一篇文章为例，对比网页上的效果来看.md文件应该怎么写。这是在首页上浏览到的文章效果图：</p>
+<div align="center"><img src="indexarticle.png" data-action="zoom"></div>
+
+<p>点击进去之后，文章的头部效果图：</p>
+<div align="center"><img src="articleheader.png" data-action="zoom"></div>
+
+<p>文章的侧边效果图：</p>
+<div align="center"><img src="articledex.png" data-action="zoom"></div>
+
+<p>最后放上的是我<a href="https://linftp.com/2018/11/17/thoughts/" target="_blank" rel="noopener">第一篇文章</a>的.md文件是如何编写的：</p>
+<div align="center"><img src="articlezw.png" data-action="zoom"></div>
+
+<p>如何加入图片？这里是结合个性化博客那部分的如何添加放大图片功能来讲的。</p>
+<p>1、如果你想把图片上传到到Git服务器上，把图片放到与.md同名的文件夹中，然后在文章你想插入图片的位置加入以下代码：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">align</span>=<span class="string">"center"</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"图片名"</span> <span class="attr">data-action</span>=<span class="string">"zoom"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>请注意图片名的地方是填你放在与你这篇博文的.md文件同名的文件夹中的图片名称，我们把这个同名文件夹称为网页的资源文件夹，要加上文件名后缀。比如你在资源文件夹中放了一张名为”moto.png”的照片，那么上述代码的图片名的位置填”moto.png”。为了排版美观，请单独把图片代码放在一段，并用。</p>
+<p>2、如果你不想把图片上传至Git服务器上，想引用网页上的图片地址，只需把网页上的图片地址填到图片名那个位置就可以了。</p>
+<p>当你用.md编辑器编辑好你的博文后，请保存为.md文件的格式。<em>(文件名是你在输入<code>hexo new post &quot;file name&quot;</code>时保存的文件名)</em>。然后放到博客根目录的source-&gt;_posts进行文件替换就可以了<em>(对应我的完整路径是D:\linftp\source_posts)</em>。<em>(如果你之前就是打开这个文件进行编辑，那么直接保存就可以了)</em></p>
+<p>这时候我们要做的是如何部署到GitHub上，回到博客根目录文件夹。鼠标右键，点击“Git Bash Here”，然后输入<code>hexo c</code>,回车,输入<code>hexo g</code> ，回车，输入<code>hexo d</code>，回车，即可完成部署。这个时候，打开你的浏览器，输入域名，<em>（我的是linftp.com）</em>，即可看到你刚才写好的文章。如果看不到，那么证明你前面某个步骤出错了。</p>
+<p>现在我们来看一下这三条命令代表什么意思。先附上<a href="https://hexo.io/zh-cn/docs/commands" target="_blank" rel="noopener">Hexo官网文档</a>。</p>
+<p><code>hexo c</code>全称<code>hexo clean</code>，它的作用是清除缓存的文件以及已生成的静态文件。</p>
+<p><code>hexo g</code>全称<code>hexo generate</code>,它的作用是重新生成静态文件。</p>
+<p><code>hexo d</code>全称<code>hexo deploy</code>,它的作用是把生成的静态文件部署到GitHub上。</p>
+<p><strong>这三条命令都需要在博客根目录文件夹下，鼠标右键，点击“Git Bash Here”，然后再输入。</strong></p>
+<p>值得一提的是，你在输入<code>hexo c</code>和<code>hexo g</code>后，可以先不急着部署到GitHub上，而是先在本地服务器上浏览一下效果。具体做法是输入<code>hexo s</code>，然后打开浏览器，输入 <code>http://localhost:4000/</code>查看效果，查看后，回到“Git Bash”界面，按<code>Ctrl+C</code>退出本地服务器，输入<code>hexo d</code>部署到GitHub上。</p>
+<p>我们重新梳理一下新建文章的顺序，在<strong>博客根目录文件夹</strong>下，鼠标右键，点击“Git Bash Here”，输入<code>hexo new post &quot;file name&quot;</code>，自己取好博文文件名，然后写好.md文件，放到博客根目录的source-&gt;_posts下。回到博客根目录文件夹。鼠标右键，点击“Git Bash Here”，然后输入<code>hexo c</code>,回车,输入<code>hexo g</code> ，回车，输入<code>hexo d</code>，回车，即可完成部署。</p>
+<h2 id="如何删除一篇文章"><a href="#如何删除一篇文章" class="headerlink" title="如何删除一篇文章"></a>如何删除一篇文章</h2><p>删除文章只需要把_posts下对应文章的文件夹和文件名删除，然后再使用以下三条命令重新部署即可。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo c</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<h1 id="简要介绍博客文件"><a href="#简要介绍博客文件" class="headerlink" title="简要介绍博客文件"></a>简要介绍博客文件</h1><hr>
+<p>接下来我们来简要介绍Hexo生成的博客文件，附<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">Hexo官方文档</a>。</p>
+<p>打开博客所在根目录，可以发现如图所示的文件。可能会你的文件稍有不同，无伤大雅。</p>
+<div align="center"><img src="directory.png" data-action="zoom"></div>
+
+<p>为了方便讲解，我挑选部分文件把它转换为了以下的文件结构：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── .deploy_git  /*执行hexo d命令后生成的静态文件目录*/</span><br><span class="line">├── .node_modules  /*这是项目npm所安装依赖包的目录*/</span><br><span class="line">├── public  /*执行hexo g命令后生成的静态文件目录，这里的内容也是开源的内容*/</span><br><span class="line">├── scaffolds  /*存放草稿文件的目录*/</span><br><span class="line">├── source  /*文章的源码目录*/</span><br><span class="line">|   ├── _posts  /*这是你发布的文章的目录*/  </span><br><span class="line">|   ├── about /*这是你博客about页的目录*/   </span><br><span class="line">|   ├── archive /*这是你博客archive页的目录*/ </span><br><span class="line">|   ├── img /*这是存放你博客的图片文件所在目录*/ </span><br><span class="line">|   ├── tag /*这里是你博客的tag页的目录*/ </span><br><span class="line">|   ├── 404.md  /*这里是404页的.md文件*/  </span><br><span class="line">|   └── CNAME   /*域名解析文件*/</span><br><span class="line">├── themes  /*放置主题文件的目录*/</span><br><span class="line">|   └── beantech    </span><br><span class="line">|       ├── languages_to_be_added /*存放语言文件目录*/ </span><br><span class="line">|       ├── layout   /*有关主题布局的js文件*/</span><br><span class="line">|       ├── source  /*存放主题的相关样式文件*/   </span><br><span class="line">|       ├── _config.yml  /*主题的配置文件*/</span><br><span class="line">|       └── LICENSE  /*声明文件*/</span><br><span class="line">├── _config.yml /*博客的配置文件，在后面个性化那块会详解一小部分*/</span><br><span class="line">└── package.json    /*这里是存放hexo的一些相关信息*/</span><br><span class="line">├ ...</span><br></pre></td></tr></table></figure>
+<h1 id="个性化你的博客以及添加插件"><a href="#个性化你的博客以及添加插件" class="headerlink" title="个性化你的博客以及添加插件"></a>个性化你的博客以及添加插件</h1><hr>
+<h2 id="个性化你的博客"><a href="#个性化你的博客" class="headerlink" title="个性化你的博客"></a>个性化你的博客</h2><p>尽管主题已经让我们的博客变得各式各样，多姿多彩，我们依旧可以通过安装插件以及更改配置文件的方式使我们的博客更富个性化。</p>
+<p>下面我以我的博客为例，详解如何个性化我们的博客。</p>
+<p>首页(HOME)的头部个性化处理:使用Notepad++打开博客根目录下的_config.yml进行修改。</p>
+<div align="center"><img src="indihead.png" data-action="zoom"></div>
+
+<p>首页(HOME)的侧栏个性化处理:使用Notepad++打开博客根目录下的_config.yml进行修改。</p>
+<div align="center"><img src="indisider.png" data-action="zoom"></div>
+
+<p>首页(HOME)的底部个性化处理:使用Notepad++打开博客根目录下的_config.yml进行修改。</p>
+<div align="center"><img src="indifooter.png" data-action="zoom"></div>
+
+<p>个人介绍页(ABOUT)个性化处理请用Noteopad++打开博客根目录-&gt;source-&gt;about-&gt;index.md进行修改。</p>
+<div align="center"><img src="about.png" data-action="zoom"></div>
+
+<p>归档页(ARCHIVES)个性化处理请用Noteopad++打开博客根目录-&gt;source-&gt;archive-&gt;index.md进行修改。</p>
+<div align="center"><img src="archive.png" data-action="zoom"></div>
+
+<p>标签页(TAGS)个性化处理请用Noteopad++打开博客根目录-&gt;source-&gt;tags-&gt;index.md进行修改。</p>
+<div align="center"><img src="tags.png" data-action="zoom"></div>
+
+<p>还有一点是要修改网页的语言。打开博客根目录下的_config.yml，修改language: zh-CN，注意“:”与“zh-CN”之间有一个空格的，这是Markdown的语法规则，在其他地方也要注意这个问题。 </p>
+<div align="center"><img src="language.png" data-action="zoom"></div>
+
+<p>个性化网页主要修改_config.yml文件和themes-&gt;beanch<br>-&gt;layout中的各类.ejs文件。有兴趣可进行修改，甚至可以在该主题的基础上设计出一个新的主题。</p>
+<p>下面讲一下如何添加各类插件及功能。</p>
+<h2 id="添加评论插件"><a href="#添加评论插件" class="headerlink" title="添加评论插件"></a>添加评论插件</h2><p>评论插件常见主要有几种：</p>
+<p>畅言：需要备案才能使用，放弃。</p>
+<p>Disqus ：国外老牌评论插件，但要访问国外网站，你懂的。。。</p>
+<p><a href="https://www.livere.com/" target="_blank" rel="noopener">来必力（livere）</a>：韩国的一个评论插件，优势在于支持多种主流社交账号授权登录评论，可以管理评论，试用了一下加载速度还算OK。</p>
+<p><a href="https://github.com/gitalk/gitalk" target="_blank" rel="noopener">Gitalk</a>：Gitalk 是一个基于 GitHub Issue 和 Preact 开发的评论插件。使用的是GitHub账号登录，评论支持Markdown语法。评论界面相比来必力更加的简洁好看，再加上一些别的原因，最终放弃来必力而选择了Gitalk。</p>
+<p>登录GitHub，新建<a href="https://github.com/settings/applications/new" target="_blank" rel="noopener">GitHub Application</a></p>
+<div align="center"><img src="newapp.png" data-action="zoom"></div>
+
+<p>打开<a href="https://github.com/settings/developers" target="_blank" rel="noopener">应用网页</a>，点击你刚创建的应用，可以看到Client ID和Client Secret的值。记录下来。</p>
+<div align="center"><img src="client.png" data-action="zoom"></div>
+
+<p>使用Notepad++打开博客根目录-&gt;themes-&gt;beantech-&gt;layout-&gt;post.ejs文件，在如下图的位置插入以下代码，请对比下图根据自己的信息填写。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--Gittalk--&gt;</span><br><span class="line">&lt;link rel=<span class="string">"stylesheet"</span> href=<span class="string">"https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css"</span>&gt;</span><br><span class="line">&lt;script src=<span class="string">"https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;div id=<span class="string">"gitalk-container"</span>&gt;&lt;/div&gt;</span><br><span class="line">&lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span>&gt;					 </span><br><span class="line">var gitalk = new Gitalk(&#123;</span><br><span class="line">    clientID: <span class="string">'填你刚才记下的clientID'</span>,</span><br><span class="line">    clientSecret: <span class="string">'填你刚才记下的clientSecret'</span>,</span><br><span class="line">    repo: <span class="string">'填你的仓库地址'</span>,</span><br><span class="line">    owner: <span class="string">'你的GitHub用户名'</span>,</span><br><span class="line">    admin: [<span class="string">'你的GitHub用户名'</span>],</span><br><span class="line">    id: decodeURI(window.location.pathname),   </span><br><span class="line">    distractionFreeMode: <span class="literal">true</span>  </span><br><span class="line">&#125;);</span><br><span class="line">gitalk.render(<span class="string">'gitalk-container'</span>);</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;!--Gittalk end--&gt;</span><br></pre></td></tr></table></figure>
+<div align="center"><img src="gitalkcode.png" data-action="zoom"></div>
+
+<p>此时，我们使用<code>hexo c</code>,<code>hexo g</code>,<code>hexo d</code>三条命令重新部署博客，点击进入我们写好的文章，每篇文章第一次都需要初始化创建Issues评论。这时只需使用GitHub账号登录即可完成创建。</p>
+<p>网上有使用脚本自动化创建Issuses评论的教程，需要的请自行查找。</p>
+<p>值得一提的是由于id长度不能超过50个字符，所以我们在使用<code>hexo new post &quot;file name&quot;</code>新建文章时，不要起太长的名字。</p>
+<h2 id="添加图片放大功能"><a href="#添加图片放大功能" class="headerlink" title="添加图片放大功能"></a>添加图片放大功能</h2><p>下载<a href="https://github.com/lynnlebron/linftp.github.io/blob/master/js/zooming.js" target="_blank" rel="noopener">zooming.js</a>文件，保存在博客根目录-&gt;themes-&gt;beantech-&gt;source-&gt;js目录下。</p>
+<p>使用Notepad++打开博客根目录-&gt;themes-&gt;beantech-&gt;layout-&gt;post.ejs文件，在最下方加入代码：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span> src=<span class="string">"/js/zooming.js"</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>最重要的是你想在文章中添加图片时，应该在合适的位置，加入以下代码：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div align=<span class="string">"center"</span>&gt;&lt;img src=<span class="string">"图片名"</span> data-action=<span class="string">"zoom"</span>&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p>添加图片的细节问题已经在上面“如何添加一篇文章”那一块说了，请往上查阅。</p>
+<h2 id="添加访客以及字数统计"><a href="#添加访客以及字数统计" class="headerlink" title="添加访客以及字数统计"></a>添加访客以及字数统计</h2><p>访客插件我使用的是<a href="http://busuanzi.ibruce.info/" target="_blank" rel="noopener">不蒜子</a>。</p>
+<p>使用Nodepad++打开博客根目录-&gt;themes-&gt;beantech-&gt;layout-&gt;_partial-&gt;footer.ejs文件，在最下方加入以下代码</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script async src=<span class="string">"https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>然后找到该文件下图的位置，把下图的代码换成下面的代码：</p>
+<div align="center"><img src="copyright.png" data-action="zoom"></div>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"> <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"copyright text-muted"</span>&gt;</span></span><br><span class="line"> Copyright &amp;copy; <span class="tag">&lt;<span class="name">%=</span> <span class="attr">config.author</span> %&gt;</span> <span class="tag">&lt;<span class="name">%=</span> <span class="attr">new</span> <span class="attr">Date</span>()<span class="attr">.getFullYear</span>() %&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"busuanzi_container_site_uv"</span>&gt;</span>visitors：</span><br><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"busuanzi_value_site_uv"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span> </span><br><span class="line">| <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"post-count"</span>&gt;</span><span class="tag">&lt;<span class="name">%=</span> <span class="attr">totalcount</span>(<span class="attr">site</span>) %&gt;</span> words altogether<span class="tag">&lt;/<span class="name">span</span>&gt;</span>       </span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>结果如下图所示：</p>
+<div align="center"><img src="copyright2.png" data-action="zoom"></div>
+
+<p>注意红框中的代码有两种选择：</p>
+<p>1、算法a：pv的方式，单个用户连续点击n篇文章，记录n次访问量。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"busuanzi_container_site_pv"</span>&gt;</span></span><br><span class="line">    visitors：<span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"busuanzi_value_site_pv"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>2、算法b：uv的方式，单个用户连续点击n篇文章，只记录1次访客数。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"busuanzi_container_site_uv"</span>&gt;</span></span><br><span class="line">  visitors：<span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"busuanzi_value_site_uv"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>上述代码中实际上已经包含了字数统计的代码，现在只需安装插件即可。在博客根目录下，鼠标右键，点击“Git Bash Here”，输入<code>npm install hexo-wordcount --save</code>，回车，即可完成安装。</p>
+<h2 id="添加置顶功能"><a href="#添加置顶功能" class="headerlink" title="添加置顶功能"></a>添加置顶功能</h2><p>博客根目录下，鼠标右键，点击“Git Bash Here”，输入以下<code>npm uninstall hexo-generator-index --save</code>，回车，<code>npm install hexo-generator-index-pin-top --save</code>，回车，完成插件安装。</p>
+<p>使用Notepad++打开博客根目录-&gt;themes-&gt;beantech-&gt;layout-&gt;index.ejs文件，在如下位置插入代码;</p>
+<div align="center"><img src="top.png" data-action="zoom"></div>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">%</span> <span class="attr">if</span> (<span class="attr">post.top</span>) &#123;%&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-thumb-tack"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">font</span> <span class="attr">color</span>=<span class="string">7D26CD</span>&gt;</span>置顶<span class="tag">&lt;/<span class="name">font</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"post-meta-divider"</span>&gt;</span>|<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">%&#125;%</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>然后，我们在写文章时，在如下位置加入top: ,可以填数字或者true，当存在多篇文章置顶时，数字越大的文章在首页的位置越靠前。其余的按照时间顺序排列。</p>
+<div align="center"><img src="articletop.png" data-action="zoom"></div>
+
+<h2 id="添加网易云音乐"><a href="#添加网易云音乐" class="headerlink" title="添加网易云音乐"></a>添加网易云音乐</h2><p>打开<a href="https://music.163.com" target="_blank" rel="noopener">网易云音乐官网</a>，找到自己喜欢的歌，点击进去。会出现一个生成外链播放器的按钮。</p>
+<div align="center"><img src="song1.png" data-action="zoom"></div>
+
+<p>此时，如果没有“版权保护”字样的提示。那么你可以按照下图方式复制代码，有的话，你只能换一首歌了。</p>
+<div align="center"><img src="song2.png" data-action="zoom"></div>
+
+<p>把生成的外链播放器代码粘贴到你文章的适当位置，如下图是放置于文章开头。</p>
+<div align="center"><img src="song3.png" data-action="zoom"></div>
+
+<p>为了排版美观，请前后空行，并且加上<code>&lt;div align=&quot;center&quot;&gt;你的播放器代码&lt;/div&gt;</code>使得播放器居中显示。</p>
+<h2 id="添加其他功能"><a href="#添加其他功能" class="headerlink" title="添加其他功能"></a>添加其他功能</h2><h3 id="SEO"><a href="#SEO" class="headerlink" title="SEO"></a>SEO</h3><p><a href="http://www.ehcoo.com/seo.html" target="_blank" rel="noopener">【搜索优化】Hexo-next百度和谷歌搜索优化</a></p>
+<p>这篇文章是基于next主题的，所以在参考时要注意区分文件。</p>
+<h1 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h1><hr>
+<p>磨蹭了两天，终于把这篇教程写完了。由于面向的是零代码基础小白，所以难免有些地方过于繁琐，请见谅。</p>
+<p>这篇文章基本上把我在建立个人博客时遇到的问题都一一详解了，有疑问的地方可以在评论里交流。</p>
+<p>如果有发现错误的地方，欢迎在评论里指出。</p>
+<p>最后，建一个个人博客网站不难，难的是如何坚持记录自己的想法和学习过程。追求梦想的脚步从来都是要脚踏实地的。加油！</p>
+<blockquote>
+<p>封面图 by  <a href="https://unsplash.com/photos/sf4ihZObGOY" target="_blank" rel="noopener">Alessandro Ranica</a> on <a href="https://unsplash.com/" target="_blank" rel="noopener">Unsplash</a></p>
+</blockquote>
+
+                
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                    
+                        <li class="next">
+                            <a href="/2018/11/17/thoughts/" data-toggle="tooltip" data-placement="top" title="深夜感想">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+				<!--Gittalk-->
+					 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+					<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+					<div id="gitalk-container"></div>
+					 <script type="text/javascript">					 
+					 var gitalk = new Gitalk({
+					  clientID: '49abbb39ea3a24740460',
+					  clientSecret: '51708a5cb7cbfd141dd8d532e94fc8a06ec9643a',
+					  repo: 'linftp.github.io',
+					  owner: 'lynnlebron',
+					  admin: ['lynnlebron'],
+					  id: decodeURI(window.location.pathname),      // Ensure uniqueness and length less than 50
+					  distractionFreeMode: true  // Facebook-like distraction free mode
+					});
+
+					gitalk.render('gitalk-container');
+					 </script>
+				<!--Gittalk end-->
+				
+				
+					<div id="gitalk-container"></div>
+				<!-- 来必力City版安装代码 
+					<div id="lv-container" data-id="city" data-uid="MTAyMC80MTA0NC8xNzU2OQ==">
+						<script type="text/javascript">
+					   (function(d, s) {
+						   var j, e = d.getElementsByTagName(s)[0];
+
+						   if (typeof LivereTower === 'function') { return; }
+
+						   j = d.createElement(s);
+						   j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+						   j.async = true;
+
+						   e.parentNode.insertBefore(j, e);
+					   })(document, 'script');
+						</script>
+					<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+					</div>
+				 City版安装代码已完成 -->
+
+              
+            </div>
+            
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#概述"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">概述</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#安装Node-js"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">安装Node.js</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#安装Git"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">安装Git</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#安装Hexo"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">安装Hexo</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#注册GitHub账号"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">注册GitHub账号</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#访问不到GitHub官网时处理方案"><span class="toc-nav-number">5.1.</span> <span class="toc-nav-text">访问不到GitHub官网时处理方案</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#打开GitHub官网注册账号"><span class="toc-nav-number">5.2.</span> <span class="toc-nav-text">打开GitHub官网注册账号</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#配置GitHub"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">配置GitHub</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#绑定域名"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">绑定域名</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#更换主题"><span class="toc-nav-number">8.</span> <span class="toc-nav-text">更换主题</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#添加、删除文章"><span class="toc-nav-number">9.</span> <span class="toc-nav-text">添加、删除文章</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#如何添加一篇文章"><span class="toc-nav-number">9.1.</span> <span class="toc-nav-text">如何添加一篇文章</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#如何删除一篇文章"><span class="toc-nav-number">9.2.</span> <span class="toc-nav-text">如何删除一篇文章</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#简要介绍博客文件"><span class="toc-nav-number">10.</span> <span class="toc-nav-text">简要介绍博客文件</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#个性化你的博客以及添加插件"><span class="toc-nav-number">11.</span> <span class="toc-nav-text">个性化你的博客以及添加插件</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#个性化你的博客"><span class="toc-nav-number">11.1.</span> <span class="toc-nav-text">个性化你的博客</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#添加评论插件"><span class="toc-nav-number">11.2.</span> <span class="toc-nav-text">添加评论插件</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#添加图片放大功能"><span class="toc-nav-number">11.3.</span> <span class="toc-nav-text">添加图片放大功能</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#添加访客以及字数统计"><span class="toc-nav-number">11.4.</span> <span class="toc-nav-text">添加访客以及字数统计</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#添加置顶功能"><span class="toc-nav-number">11.5.</span> <span class="toc-nav-text">添加置顶功能</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#添加网易云音乐"><span class="toc-nav-number">11.6.</span> <span class="toc-nav-text">添加网易云音乐</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#添加其他功能"><span class="toc-nav-number">11.7.</span> <span class="toc-nav-text">添加其他功能</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#SEO"><span class="toc-nav-number">11.7.1.</span> <span class="toc-nav-text">SEO</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#写在最后"><span class="toc-nav-number">12.</span> <span class="toc-nav-text">写在最后</span></a></li></ol>
+        
+        </div>
+      </aside>
+    
+
+                
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#Hexo" title="Hexo">Hexo</a>
+                        
+                          <a class="tag" href="/tags/#GitHub" title="GitHub">GitHub</a>
+                        
+                          <a class="tag" href="/tags/#教程" title="教程">教程</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="https://godweiyang.com/" target="_blank">WeiYang Blog</a></li>
+                    
+                        <li><a href="http://beantech.org/" target="_blank">Bean Tech</a></li>
+                    
+                        <li><a href="http://huangxuan.me" target="_blank">Hux Blog</a></li>
+                    
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ 
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℬ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>-->
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+<script type="text/javascript" src="/js/zooming.js"></script>
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank" href="https://github.com/lynnlebron">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                </ul>
+				
+                <p class="copyright text-muted">
+                    Copyright &copy; Lynn 2018 
+                    <br>
+					<span id="busuanzi_container_site_uv">visitors：
+					<span id="busuanzi_value_site_uv"></span></span> 
+					| <span class="post-count">7.3k words altogether</span>       
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://yoursite-url/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-XXXXXXXX-X';
+    var _gaDomain = 'yoursite';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+	<a id="rocket" href="#top" class=""></a>
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+<!-- Image to hack wechat -->
+<img src="http://yoursite-url/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>
