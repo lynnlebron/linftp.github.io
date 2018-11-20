@@ -149,6 +149,13 @@
 
                         
                         <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
                             <a href="/about/">About</a>
                         </li>
                         
@@ -157,13 +164,6 @@
                         
                         <li>
                             <a href="/archive/">Archives</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
-                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -229,7 +229,7 @@
 <p>首先，我们先弄清楚Hexo和GitHub是什么?</p>
 <p>通过<a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">Hexo官网</a>的介绍，我们可以了解到<strong>Hexo</strong>是一个一个快速、简洁且高效的博客框架，它基于<strong>Node.js</strong>，使用<strong>Markdown</strong>来解析文章。</p>
 <p>而<a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>是一个面向开源和私有软件项目的托管平台,也是一个开源代码库以及版本控制系统。</p>
-<p>而GitHub有一个<a href="//pages.github.com">GitHubPages</a>的功能，用于设置你的主页或是你的项目主页。由此我们可以利用这个功能，根据Markdown语法写好我们的博文，使用Hexo上传至GitHub中，然后别人访问我们的主页时，就可以看到Hexo通过靓丽的主题生成的静态网页了。在搭建好我们的博客以后，我们只需使用Markdown语法写好博文上传至GitHub就可以了，而无需关注网页具体生成细节，是不是很简单呢？</p>
+<p>而GitHub有一个<a href="https://pages.github.com" target="_blank" rel="noopener">GitHubPages</a>的功能，用于设置你的主页或是你的项目主页。由此我们可以利用这个功能，根据Markdown语法写好我们的博文，使用Hexo上传至GitHub中，然后别人访问我们的主页时，就可以看到Hexo通过靓丽的主题生成的静态网页了。在搭建好我们的博客以后，我们只需使用Markdown语法写好博文上传至GitHub就可以了，而无需关注网页具体生成细节，是不是很简单呢？</p>
 <h1 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a>安装Node.js</h1><hr>
 <p>在安装Hexo之前我们首先要安装Node.js和Git。</p>
 <p>下载<a href="https://nodejs.org/dist/latest-v10.x/node-v10.13.0-x64.msi" target="_blank" rel="noopener">Node.js</a><em>（这里给出的是windows系统的64位安装包，请根据自己的系统选择合适的安装包。另该版本使用chrome下载后会有危险警示，无视它好了。）</em>安装过程全部默认设置就可以了，安装路径可自行修改。</p>
@@ -251,7 +251,7 @@
 
 <p>输入<code>hexo init</code>，回车，Hexo会在该文件夹下初始化生成博客所需的所有文件。<em>（可能会有几个warning，无视即可。）</em></p>
 <p>输入<code>npm install</code>，回车，安装依赖包。<em>（可能会有几个warning，无视即可。）</em></p>
-<p>至此，Hexo已经安装完毕了，输入<code>hexo g</code>生成静态网页，输入<code>hexo s</code>启动本地服务器上。这时，<strong>打开浏览器</strong>，输入”<a href="http://localhost:4000/&quot;即可访问到我们刚建好的博客了。" target="_blank" rel="noopener">http://localhost:4000/&quot;即可访问到我们刚建好的博客了。</a></p>
+<p>至此，Hexo已经安装完毕了，输入<code>hexo g</code>生成静态网页，输入<code>hexo s</code>启动本地服务器上。这时，<strong>打开浏览器</strong>，输入<code>http://localhost:4000/</code>即可访问到我们刚建好的博客了。</p>
 <div align="center"><img src="local.png" data-action="zoom"></div>
 
 <p>在<strong>Git Bash界面</strong>按<code>Ctrl+C</code>即可关闭本地服务器。</p>
@@ -328,7 +328,7 @@
 <p>按照下图添加两条解析，注意这里的“记录值”要填你刚才记录的IP地址。</p>
 <div align="center"><img src="addjiexi.png" data-action="zoom"></div>
 
-<p>然后打开浏览器，输入<code>https://github.com/你的用户名/你的项目名</code>，<em>（我的是<a href="https://github.com/lynnlebron/linftp.github.io）" target="_blank" rel="noopener">https://github.com/lynnlebron/linftp.github.io）</a></em>。点击“Settings”，拉到下面的“GitHub Pages”，在“Custom domain”输入你的域名，点击“Save”即可绑定。</p>
+<p>然后打开浏览器，输入<code>https://github.com/你的用户名/你的项目名</code>，我的是<code>https://github.com/lynnlebron/linftp.github.io</code>。点击“Settings”，拉到下面的“GitHub Pages”，在“Custom domain”输入你的域名，点击“Save”即可绑定。</p>
 <div align="center"><img src="domain.png" data-action="zoom"></div>
 
 <h1 id="更换主题"><a href="#更换主题" class="headerlink" title="更换主题"></a>更换主题</h1><hr>
@@ -471,6 +471,7 @@
 <p>为了排版美观，请前后空行，并且加上<code>&lt;div align=&quot;center&quot;&gt;你的播放器代码&lt;/div&gt;</code>使得播放器居中显示。</p>
 <h2 id="添加其他功能"><a href="#添加其他功能" class="headerlink" title="添加其他功能"></a>添加其他功能</h2><h3 id="SEO"><a href="#SEO" class="headerlink" title="SEO"></a>SEO</h3><p><a href="http://www.ehcoo.com/seo.html" target="_blank" rel="noopener">【搜索优化】Hexo-next百度和谷歌搜索优化</a></p>
 <p>这篇文章是基于next主题的，所以在参考时要注意区分文件。</p>
+<p>每次添加完新功能后，都需要重新使用<code>hexo c</code>、<code>hexo g</code>、<code>hexo d</code>这三条命令重新部署才能看到效果。</p>
 <h1 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h1><hr>
 <p>磨蹭了两天，终于把这篇教程写完了。由于面向的是零代码基础小白，所以难免有些地方过于繁琐，请见谅。</p>
 <p>这篇文章基本上把我在建立个人博客时遇到的问题都一一详解了，有疑问的地方可以在评论里交流。</p>
@@ -671,7 +672,7 @@
                     <br>
 					<span id="busuanzi_container_site_uv">visitors：
 					<span id="busuanzi_value_site_uv"></span></span> 
-					| <span class="post-count">7.3k words altogether</span>       
+					| <span class="post-count">7.4k words altogether</span>       
                 </p>
             </div>
         </div>
