@@ -149,13 +149,6 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
                             <a href="/archive/">Archives</a>
                         </li>
                         
@@ -164,6 +157,13 @@
                         
                         <li>
                             <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -376,7 +376,7 @@
 <p><strong>这三条命令都需要在博客根目录文件夹下，鼠标右键，点击“Git Bash Here”，然后再输入。</strong></p>
 <p>值得一提的是，你在输入<code>hexo c</code>和<code>hexo g</code>后，可以先不急着部署到GitHub上，而是先在本地服务器上浏览一下效果。具体做法是输入<code>hexo s</code>，然后打开浏览器，输入 <code>http://localhost:4000/</code>查看效果，查看后，回到“Git Bash”界面，按<code>Ctrl+C</code>退出本地服务器，输入<code>hexo d</code>部署到GitHub上。</p>
 <p>我们重新梳理一下新建文章的顺序，在<strong>博客根目录文件夹</strong>下，鼠标右键，点击“Git Bash Here”，输入<code>hexo new post &quot;file name&quot;</code>，自己取好博文文件名，然后写好.md文件，放到博客根目录的source-&gt;_posts下。回到博客根目录文件夹。鼠标右键，点击“Git Bash Here”，然后输入<code>hexo c</code>,回车,输入<code>hexo g</code> ，回车，输入<code>hexo d</code>，回车，即可完成部署。</p>
-<h2 id="如何删除一篇文章"><a href="#如何删除一篇文章" class="headerlink" title="如何删除一篇文章"></a>如何删除一篇文章</h2><p>删除文章只需要把_posts下对应文章的文件夹和文件名删除，然后再使用以下三条命令重新部署即可。</p>
+<h2 id="如何删除一篇文章"><a href="#如何删除一篇文章" class="headerlink" title="如何删除一篇文章"></a>如何删除一篇文章</h2><p>删除文章只需要把_posts下对应文章的文件夹和文件名删除，然后再使用以下三条命令重新部署即可。还有一点要注意的是_posts目录下是不能为空的，即你至少得有一篇文章。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo c</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
 <h1 id="简要介绍博客文件"><a href="#简要介绍博客文件" class="headerlink" title="简要介绍博客文件"></a>简要介绍博客文件</h1><hr>
 <p>接下来我们来简要介绍Hexo生成的博客文件，附<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">Hexo官方文档</a>。</p>
